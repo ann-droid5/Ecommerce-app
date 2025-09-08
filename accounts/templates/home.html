@@ -1,5 +1,12 @@
-<h1>Welcome to Jewelry Shop</h1>
-<p>
-    <a href="{% url 'login' %}">Login</a> | 
-    <a href="{% url 'register' %}">Register</a>
-</p>
+{% extends "base.html" %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h2>Welcome, {{ user.username }}</h2>
+  {% else %}
+    <h2>Welcome to the Jewelry Shop</h2>
+    <p>Browse our latest collections and offers!</p>
+  {% endif %}
+{% endblock %}
+
+
