@@ -1,5 +1,18 @@
 <h1>Welcome to Jewelry Shop</h1>
-<p>
-    <a href="{% url 'login' %}">Login</a> | 
-    <a href="{% url 'register' %}">Register</a>
+<p style="display: flex; justify-content: space-between; align-items: center;">
+    <span>
+        <a href="{% url 'login' %}">Login</a> | 
+        <a href="{% url 'register' %}">Register</a> |
+        
+    </span>
+    <span style="float: right;">
+            <a href="{% url 'product_list' %}"> Search Products</a> | 
+            <a href="{% url 'home' %}">Home</a>
+    </span>
+    
+
 </p>
+
+
+
+

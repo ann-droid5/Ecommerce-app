@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <a href="{% url 'home' %}">Home</a>
+    <title>{{ product.name }}</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        .card {
+            display: flex;
+            gap: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 800px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .card-content {
+            flex: 1;
+        }
+        .card-content h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: green;
+            margin: 10px 0;
+        }
+        .description {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <div class="card-content">
+        <h2>{{ product.name }}</h2>
+        <div class="price">₹{{ product.price }}</div>
+        <div class="description">{{ product.description }}</div>
+        <a href="{% url 'product_list' %}" class="back-link">← Back to Products</a>
+    </div>
+</div>
+
+</body>
+</html>

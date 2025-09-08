@@ -4,9 +4,17 @@
     <title>Profile</title>
 </head>
 <body>
+    
     <h2>Welcome, {{ request.user.username }}!</h2>
     <p>Email: {{ request.user.email }}</p>
 
+    {% if user.is_superuser %}
+      
+      <a href="/admin/">Admin Panel</a>
+    {% endif %}
+    
+
+    
     <p><a href="{% url 'logout' %}">Logout</a></p>
 </body>
 </html>
