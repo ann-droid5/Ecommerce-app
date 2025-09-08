@@ -1,12 +1,22 @@
 from django.contrib import admin
+from .models import Category, Product, Cart, CartItem
 
-from django.contrib import admin
-from .models import Category, Product, Order, OrderDetail, Cart, Log
 
-admin.site.register(Category)
-admin.site.register(Product)
-admin.site.register(Order)
-admin.site.register(OrderDetail)
-admin.site.register(Cart)
-admin.site.register(Log)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'description')
 
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'price', 'category')  # removed 'stock'
+
+
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'created_at')
+
+
+@admin.register(CartItem)
+class CartItemAdmin(admin.ModelAdmin):
+    list_display = ('id', 'cart', 'product', 'quantity')
